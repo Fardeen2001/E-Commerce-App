@@ -38,7 +38,7 @@
   display: flex;
   flex-direction: row-reverse;
   font-size: 1.2rem;
-  margin: 20px;
+  margin: 10px;
 }
 .totalAmount span {
   margin-left: 10px;
@@ -46,7 +46,6 @@
 .purchaseBtn {
   text-align: center;
   margin: auto;
-  margin-top: 50px;
   font-size: 1.2rem;
   font-weight: bold;
   padding: 12px;
@@ -86,9 +85,7 @@
   overflow-y: scroll;
 }
 
-/* Adjust the scrollable table height to fit the modal content */
-.table-responsive {
-  max-height: calc(
-    90vh - 120px
-  ); /* Subtract the header and footer heights from the modal max-height */
+.responsive {
+  max-height: 15rem;
+  overflow: auto;
 }

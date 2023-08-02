@@ -27,29 +27,55 @@ const CartPortal = (props) => {
         <span className={classes.lable3}>QUANTITY</span>
       </div>
       {isEmpty && <h3>Your Cart Is Empty</h3>}
-      <table
-        className="table table-light table-hover m-0   table-sm table-responsive"
-        id="dtVerticalScrollExample"
-      >
-        <tbody>
-          {items.map((item, index) => {
-            return (
-              <tr key={index}>
-                <td>
-                  <img
-                    src={item.imageUrl}
-                    alt="ii"
-                    style={{ height: "6rem" }}
-                  />
-                </td>
-                <td>{item.title}</td>
-                <td>{item.price}</td>
-                <td>Quantity {item.quantity}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+      <div className={classes.responsive}>
+        <table
+          className="table table-light table-hover m-0   table-sm table-responsive"
+          id="dtVerticalScrollExample"
+        >
+          <tbody>
+            {items.map((item, index) => {
+              return (
+                <tr key={index}>
+                  <td>
+                    <img
+                      src={item.imageUrl}
+                      alt="ii"
+                      style={{ height: "6rem" }}
+                    />
+                  </td>
+                  <td>{item.title}</td>
+                  <td>{item.price}</td>
+                  <td>Quantity {item.quantity}</td>
+                  <td>
+                    <Button
+                      className="btn btn-info ms-2"
+                      onClick={() =>
+                        updateItemQuantity(item.id, item.quantity - 1)
+                      }
+                    >
+                      -
+                    </Button>
+                    <Button
+                      className="btn btn-info ms-2"
+                      onClick={() =>
+                        updateItemQuantity(item.id, item.quantity + 1)
+                      }
+                    >
+                      +
+                    </Button>
+                    <Button
+                      className="btn btn-danger ms-2"
+                      onClick={() => removeItem(item.id)}
+                    >
+                      Remove
+                    </Button>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
       <div className={classes.totalAmount}>
         <span>{cartTotal}</span> Total Amount Rs
       </div>
