@@ -1,14 +1,14 @@
 import React from "react";
-import Data from "../Data/Data";
-import MerchData from "../Data/MerchData";
+import Data from "../../Data/Data";
+import MerchData from "../../Data/MerchData";
 import { Button } from "react-bootstrap";
 import Album from "./Album";
 import Merch from "./Merch";
 
-const Home = (props) => {
+const STORE = (props) => {
   return (
-    <div className="container mt-5">
-      <div className="album row justify-content-center  mt-5">
+    <div className="container mt-5 ">
+      <div className="album row justify-content-center  mt-5 d-flex flex-wrap">
         <h1 className="text-center bold">MUSIC</h1>
         {Data.map((item, index) => {
           return (
@@ -24,7 +24,7 @@ const Home = (props) => {
           );
         })}
       </div>
-      <div className="album row justify-content-center  mt-5">
+      <div className="album row justify-content-center  mt-5 d-flex flex-wrap">
         <h1 className="text-center bold">MERCH</h1>
         {MerchData.map((item, index) => {
           return (
@@ -47,4 +47,4 @@ const Home = (props) => {
   );
 };
 
-export default Home;
+export default STORE;

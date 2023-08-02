@@ -5,7 +5,7 @@ const productsArr = [
 
     price: 200,
 
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
+    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Shirt.png",
   },
 
   {
@@ -14,7 +14,7 @@ const productsArr = [
     price: 150,
     id: 2,
 
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
+    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Cofee.png",
   },
 ];
 export default productsArr;

@@ -2,7 +2,7 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
-import Nav from "react-bootstrap/Nav";
+import { Link } from "react-router-dom";
 import { useCart } from "react-use-cart";
 const NavBar = (props) => {
   const { totalItems } = useCart();
@@ -23,9 +23,24 @@ const NavBar = (props) => {
             gap: "10%",
           }}
         >
-          <Nav.Link href="#action1">HOME</Nav.Link>
-          <Nav.Link href="#action2">STORE</Nav.Link>
-          <Nav.Link href="#action2">ABOUT</Nav.Link>
+          <Link
+            class="text-decoration-none text-light font-weight-bold"
+            href="#action1"
+          >
+            HOME
+          </Link>
+          <Link
+            class="text-decoration-none font-weight-bold text-light"
+            to="/Store"
+          >
+            STORE
+          </Link>
+          <Link
+            class="text-decoration-none font-weight-bold text-light bold"
+            to="/About"
+          >
+            ABOUT
+          </Link>
         </Container>
         <Navbar.Toggle />
         <Navbar.Collapse
