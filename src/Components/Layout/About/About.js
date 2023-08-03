@@ -1,9 +1,21 @@
 import React from "react";
+import Header from "../../Header/Header";
+import Footer from "../Footer";
 
 const About = () => {
   return (
     <>
-      <h2 className="text-center font-weight-bold">ABOUT</h2>
+      <Header />
+      <h2
+        style={{
+          fontFamily: "Metal Mania",
+          fontWeight: "bold",
+          textAlign: "center",
+          margin: "10px",
+        }}
+      >
+        ABOUT
+      </h2>
       <img
         src="https://prasadyash2411.github.io/ecom-website/img/Band%20Members.png"
         class="rounded-circle mx-5 float-start"
@@ -69,6 +81,7 @@ const About = () => {
         perferendis quasi eius velit placeat autem quis ad, quibusdam
         reprehenderit ullam numquam.
       </p>
+      <Footer />
     </>
   );
 };

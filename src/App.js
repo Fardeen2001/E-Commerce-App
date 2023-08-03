@@ -6,6 +6,8 @@ import CartPortal from "./Components/Cart/CartPortal";
 import About from "./Components/Layout/About/About";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import STORE from "./Components/Layout/Store/Store";
+import Home from "./Components/Layout/Home/Home";
+import NavBar from "./Components/Header/Navbar";
 
 function App() {
   const [cart, Setcart] = useState(false);
@@ -19,9 +21,10 @@ function App() {
     <CartProvider>
       <Router>
         {cart && <CartPortal onHide={hideCartHandler} />}
-        <Header onShow={showCartHandler} />
+        <NavBar onShow={showCartHandler} />
         <main>
           <Routes>
+            <Route exact path="/Home" element={<Home />} />
             <Route
               exact
               path="/Store"
@@ -30,7 +33,6 @@ function App() {
             <Route exact path="/About" element={<About />} />
           </Routes>
         </main>
-        <Footer />
       </Router>
     </CartProvider>
   );

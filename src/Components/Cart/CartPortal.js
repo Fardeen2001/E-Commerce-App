@@ -7,9 +7,7 @@ import { useCart } from "react-use-cart";
 const CartPortal = (props) => {
   const {
     isEmpty,
-    totalUniqueItems,
     items,
-    totalItems,
     cartTotal,
     updateItemQuantity,
     removeItem,
@@ -41,6 +39,7 @@ const CartPortal = (props) => {
                       src={item.imageUrl}
                       alt="ii"
                       style={{ height: "6rem" }}
+                      className="rounded"
                     />
                   </td>
                   <td>{item.title}</td>
