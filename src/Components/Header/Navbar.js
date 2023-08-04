@@ -1,6 +1,7 @@
 import React from "react";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
+import classes from "./NavBar.module.css";
 import Button from "react-bootstrap/Button";
 import { NavLink } from "react-router-dom";
 import { useCart } from "react-use-cart";
@@ -15,44 +16,29 @@ const NavBar = (props) => {
       style={{ backgroundColor: "#000", color: "#fff" }}
     >
       <Container>
-        <Container
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            gap: "10%",
-          }}
-        >
-          <NavLink
-            to="/Home"
-            style={{
-              textDecoration: "none",
-              color: "#fff",
-              fontWeight: "bold",
-            }}
-          >
-            HOME
-          </NavLink>
-          <NavLink
-            to="/Store"
-            style={{
-              textDecoration: "none",
-              color: "#fff",
-              fontWeight: "bold",
-            }}
-          >
-            STORE
-          </NavLink>
-          <NavLink
-            to="/About"
-            style={{
-              textDecoration: "none",
-              color: "#fff",
-              fontWeight: "bold",
-            }}
-          >
-            ABOUT
-          </NavLink>
+        <Container className={classes.header}>
+          <ul>
+            <li>
+              <NavLink activeClassName={classes.active} to="/Home">
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink activeClassName={classes.active} to="/Store">
+                Store
+              </NavLink>
+            </li>
+            <li>
+              <NavLink activeClassName={classes.active} to="/About">
+                About
+              </NavLink>
+            </li>
+            <li>
+              <NavLink activeClassName={classes.active} to="/Contact">
+                Contact Us
+              </NavLink>
+            </li>
+          </ul>
         </Container>
         <Navbar.Toggle />
         <Navbar.Collapse
@@ -61,7 +47,7 @@ const NavBar = (props) => {
         >
           <Button variant="info" onClick={props.onShow}>
             Cart <span>{totalItems}</span>
-          </Button>{" "}
+          </Button>
         </Navbar.Collapse>
       </Container>
     </Navbar>
