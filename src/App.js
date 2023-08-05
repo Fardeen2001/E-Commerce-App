@@ -7,6 +7,7 @@ import STORE from "./Components/Layout/Store/Store";
 import Home from "./Components/Layout/Home/Home";
 import NavBar from "./Components/Header/Navbar";
 import Contact from "./Components/Layout/Contact/Contact";
+import ProductDetails from "./Components/ProductDetails/ProductDetails";
 
 function App() {
   const [cart, Setcart] = useState(false);
@@ -38,7 +39,13 @@ function App() {
         <NavBar onShow={showCartHandler} />
         <main>
           <Routes>
-            <Route exact path="/Home" element={<Home />} />
+            <Route exact path="/" element={<Home />} />
+            <Route
+              exact
+              path="/ProductDetails/:productId"
+              element={<ProductDetails />}
+            />
+
             <Route
               exact
               path="/Store"

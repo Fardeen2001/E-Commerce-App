@@ -18,7 +18,7 @@ const About = () => {
       </h2>
       <img
         src="https://prasadyash2411.github.io/ecom-website/img/Band%20Members.png"
-        class="rounded-circle mx-5 float-start"
+        className="rounded-circle mx-5 float-start"
         alt="img"
         width={"200px"}
         height={"200px"}

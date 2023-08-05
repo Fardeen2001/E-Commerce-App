@@ -19,24 +19,16 @@ const NavBar = (props) => {
         <Container className={classes.header}>
           <ul>
             <li>
-              <NavLink activeClassName={classes.active} to="/Home">
-                Home
-              </NavLink>
+              <NavLink to="/">Home</NavLink>
             </li>
             <li>
-              <NavLink activeClassName={classes.active} to="/Store">
-                Store
-              </NavLink>
+              <NavLink to="/Store">Store</NavLink>
             </li>
             <li>
-              <NavLink activeClassName={classes.active} to="/About">
-                About
-              </NavLink>
+              <NavLink to="/About">About</NavLink>
             </li>
             <li>
-              <NavLink activeClassName={classes.active} to="/Contact">
-                Contact Us
-              </NavLink>
+              <NavLink to="/Contact">Contact Us</NavLink>
             </li>
           </ul>
         </Container>
