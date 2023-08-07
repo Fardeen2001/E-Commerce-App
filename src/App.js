@@ -1,8 +1,13 @@
 import { CartProvider } from "react-use-cart";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import CartPortal from "./Components/Cart/CartPortal";
 import About from "./Components/Layout/About/About";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
 import STORE from "./Components/Layout/Store/Store";
 import Home from "./Components/Layout/Home/Home";
 import NavBar from "./Components/Header/Navbar";
@@ -10,9 +15,11 @@ import Contact from "./Components/Layout/Contact/Contact";
 import ProductDetails from "./Components/ProductDetails/ProductDetails";
 import NotFound from "./UI/NotFound";
 import AuthForm from "./Components/Auth/AuthForm";
+import AuthContext from "./ContextStore/auth-context";
 
 function App() {
   const [cart, Setcart] = useState(false);
+  const authCxt = useContext(AuthContext);
 
   const showCartHandler = () => {
     Setcart(true);
@@ -27,7 +34,7 @@ function App() {
         method: "POST",
         body: JSON.stringify(contactData),
         headers: {
-          "content-type": "application/json",
+          "Content-Type": "application/json",
         },
       }
     );
@@ -38,6 +45,7 @@ function App() {
     <CartProvider>
       <Router>
         {cart && <CartPortal onHide={hideCartHandler} />}
+
         <NavBar onShow={showCartHandler} />
         <main>
           <Routes>
@@ -46,7 +54,13 @@ function App() {
             <Route
               exact
               path="/ProductDetails/:productId"
-              element={<ProductDetails />}
+              element={
+                authCxt.isLoggedIn ? (
+                  <ProductDetails />
+                ) : (
+                  <Navigate to="/AuthForm" />
+                )
+              }
             />
 
             <Route

@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import classes from "./NavBar.module.css";
 import Button from "react-bootstrap/Button";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useCart } from "react-use-cart";
+import AuthContext from "../../ContextStore/auth-context";
 const NavBar = (props) => {
+  const authCxt = useContext(AuthContext);
+  const navigate = useNavigate();
   const { totalItems } = useCart();
+  const logoutHandler = () => {
+    authCxt.logout();
+    navigate("/AuthForm", { replace: true });
+  };
   return (
     <Navbar
       bg="dark"
@@ -68,6 +75,11 @@ const NavBar = (props) => {
                 >
                   LogIn
                 </NavLink>
+              </li>
+              <li>
+                <Button variant="info" onClick={logoutHandler}>
+                  Logout
+                </Button>
               </li>
             </ul>
           </nav>
