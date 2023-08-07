@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Data from "../Data/Data";
 import MerchData from "../Data/MerchData";
 import Lightbox from "react-lightbox-component";
@@ -11,11 +11,26 @@ const ProductDetails = (props) => {
   //   const [product, setProduct] = useState([]);
   const { productId } = useParams();
   const { addItem } = useCart();
+  const navigate = useNavigate();
 
   const singleProduct =
     Data.find((item) => item.id === productId) ||
     MerchData.find((item) => item.id === productId);
-  console.log(singleProduct.title);
+  if (!singleProduct) {
+    return (
+      <>
+        <br />
+        <br />
+        <br />
+        <div className="text-center">
+          <h1>No Product found</h1>
+          <Button onClick={() => navigate("/Store")}>Back To Home Page</Button>
+        </div>
+      </>
+    );
+  }
+
+  //   console.log(singleProduct.title);
 
   return (
     <Container className="py-5 mt-5">

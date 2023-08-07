@@ -16,21 +16,61 @@ const NavBar = (props) => {
       style={{ backgroundColor: "#000", color: "#fff" }}
     >
       <Container>
-        <Container className={classes.header}>
-          <ul>
-            <li>
-              <NavLink to="/">Home</NavLink>
-            </li>
-            <li>
-              <NavLink to="/Store">Store</NavLink>
-            </li>
-            <li>
-              <NavLink to="/About">About</NavLink>
-            </li>
-            <li>
-              <NavLink to="/Contact">Contact Us</NavLink>
-            </li>
-          </ul>
+        <Container>
+          <nav className={classes.header}>
+            <ul>
+              <li>
+                <NavLink
+                  to="/"
+                  className={(navdata) =>
+                    navdata.isActive ? classes.active : ""
+                  }
+                >
+                  Home
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/Store"
+                  className={(navdata) =>
+                    navdata.isActive ? classes.active : ""
+                  }
+                >
+                  Store
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/About"
+                  className={(navdata) =>
+                    navdata.isActive ? classes.active : ""
+                  }
+                >
+                  About
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/Contact"
+                  className={(navdata) =>
+                    navdata.isActive ? classes.active : ""
+                  }
+                >
+                  Contact Us
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/AuthForm"
+                  className={(navdata) =>
+                    navdata.isActive ? classes.active : ""
+                  }
+                >
+                  LogIn
+                </NavLink>
+              </li>
+            </ul>
+          </nav>
         </Container>
         <Navbar.Toggle />
         <Navbar.Collapse

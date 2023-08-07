@@ -4,10 +4,12 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Header from "../../Header/Header";
 import Footer from "../Footer";
+import { useNavigate } from "react-router-dom";
 const Contact = (props) => {
   const nameRef = useRef("");
   const emailRef = useRef("");
   const numberRef = useRef("");
+  const navigate = useNavigate();
   const submitHandler = (e) => {
     e.preventDefault();
     const contactData = {
@@ -16,10 +18,12 @@ const Contact = (props) => {
       phNumber: numberRef.current.value,
     };
     props.onAddContact(contactData);
+    navigate("/Store");
   };
   return (
     <>
       <Header />
+
       <Form onSubmit={submitHandler}>
         <Container className="m-5">
           <Form.Group className="mb-3" controlId="formBasicName">

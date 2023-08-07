@@ -8,6 +8,8 @@ import Home from "./Components/Layout/Home/Home";
 import NavBar from "./Components/Header/Navbar";
 import Contact from "./Components/Layout/Contact/Contact";
 import ProductDetails from "./Components/ProductDetails/ProductDetails";
+import NotFound from "./UI/NotFound";
+import AuthForm from "./Components/Auth/AuthForm";
 
 function App() {
   const [cart, Setcart] = useState(false);
@@ -40,6 +42,7 @@ function App() {
         <main>
           <Routes>
             <Route exact path="/" element={<Home />} />
+            <Route exact path="/AuthForm" element={<AuthForm />} />
             <Route
               exact
               path="/ProductDetails/:productId"
@@ -57,6 +60,7 @@ function App() {
               path="/Contact"
               element={<Contact onAddContact={addContactHandler} />}
             />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
       </Router>

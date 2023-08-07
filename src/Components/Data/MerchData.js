@@ -1,7 +1,7 @@
 const productsArr = [
   {
     title: "T-shirt",
-    id: "5",
+    id: "m1",
 
     price: 200,
 
@@ -17,7 +17,7 @@ const productsArr = [
     title: "Cofee Mug",
 
     price: 150,
-    id: "6",
+    id: "m2",
 
     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Cofee.png",
     imageUrl1:
