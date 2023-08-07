@@ -33,9 +33,8 @@ const AuthForm = () => {
         throw new Error("Invalid Email or password");
       }
       const data = await response.json();
-      console.log("SubmitHandler - Received Token:", data.idToken);
+      //   console.log(data.idToken);
       authCxt.login(data.idToken);
-      localStorage.setItem("loginId", data.idToken);
       navigate("/Store", { replace: true });
     } catch (error) {
       alert(error.message);

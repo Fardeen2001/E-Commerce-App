@@ -13,6 +13,10 @@ const CartPortal = (props) => {
     removeItem,
     emptyCart,
   } = useCart();
+  const purshaseHandler = () => {
+    emptyCart();
+    alert("Thank You For Purchasing, Visit Again!");
+  };
   return (
     <Modal onClick={props.onHide} className={classes.modal}>
       <h2 className={classes.cartTitle}>Cart</h2>
@@ -79,7 +83,7 @@ const CartPortal = (props) => {
         <span>{cartTotal}</span> Total Amount Rs
       </div>
       <div className={classes.purchaseBtn}>
-        <Button variant="info" onClick={emptyCart}>
+        <Button variant="info" onClick={purshaseHandler}>
           Purchase
         </Button>
       </div>

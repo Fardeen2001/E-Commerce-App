@@ -44,7 +44,7 @@ function App() {
   return (
     <CartProvider>
       <Router>
-        {cart && <CartPortal onHide={hideCartHandler} />}
+        {cart && authCxt.isLoggedIn && <CartPortal onHide={hideCartHandler} />}
 
         <NavBar onShow={showCartHandler} />
         <main>
