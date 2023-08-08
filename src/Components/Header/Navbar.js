@@ -67,19 +67,23 @@ const NavBar = (props) => {
                 </NavLink>
               </li>
               <li>
-                <NavLink
-                  to="/AuthForm"
-                  className={(navdata) =>
-                    navdata.isActive ? classes.active : ""
-                  }
-                >
-                  LogIn
-                </NavLink>
+                {!authCxt.isLoggedIn && (
+                  <NavLink
+                    to="/AuthForm"
+                    className={(navdata) =>
+                      navdata.isActive ? classes.active : ""
+                    }
+                  >
+                    LogIn
+                  </NavLink>
+                )}
               </li>
               <li>
-                <Button variant="info" onClick={logoutHandler}>
-                  Logout
-                </Button>
+                {authCxt.isLoggedIn && (
+                  <Button variant="info" onClick={logoutHandler}>
+                    Logout
+                  </Button>
+                )}
               </li>
             </ul>
           </nav>

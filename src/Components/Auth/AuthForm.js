@@ -34,7 +34,8 @@ const AuthForm = () => {
       }
       const data = await response.json();
       //   console.log(data.idToken);
-      authCxt.login(data.idToken);
+      authCxt.login(data.idToken, emailInput.current.value);
+
       navigate("/Store", { replace: true });
     } catch (error) {
       alert(error.message);

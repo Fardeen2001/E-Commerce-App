@@ -66,7 +66,13 @@ function App() {
             <Route
               exact
               path="/Store"
-              element={<STORE onShow={showCartHandler} />}
+              element={
+                authCxt.isLoggedIn ? (
+                  <STORE onShow={showCartHandler} />
+                ) : (
+                  <Navigate to="/AuthForm" />
+                )
+              }
             />
             <Route exact path="/About" element={<About />} />
             <Route
